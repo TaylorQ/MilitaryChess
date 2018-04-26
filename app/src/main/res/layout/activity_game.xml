@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:columnCount="5"
+        android:rowCount="13">
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_0_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@drawable/classicchessboard01"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_0_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard02"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_0_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard03"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_0_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard04"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_0_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard05"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_1_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard06"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_1_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard07"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_1_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard08"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_1_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard09"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_1_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard10"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_2_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard11"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_2_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard12"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_2_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard13"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_2_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard14"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_2_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard15"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_3_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard16"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_3_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard17"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_3_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard18"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_3_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard19"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_3_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard20"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_4_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard21"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_4_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard22"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_4_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard23"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_4_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard24"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_4_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard25"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_5_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard26"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_5_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard27"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_5_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard28"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_5_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard29"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_5_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard30"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/river_6_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard31"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/river_6_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard32"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/river_6_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard33"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/river_6_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard34"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/river_6_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard35"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_7_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="7"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard36"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_7_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="7"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard37"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_7_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="7"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard38"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_7_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="7"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard39"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_7_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="7"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard40"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_8_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="8"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard41"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_8_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="8"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard42"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_8_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="8"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard43"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_8_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="8"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard44"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_8_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="8"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard45"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_9_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="9"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard46"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_9_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="9"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard47"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_9_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="9"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard48"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_9_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="9"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard49"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_9_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="9"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard50"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_10_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="10"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard51"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_10_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="10"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard52"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_10_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="10"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard53"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_10_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="10"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard54"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_10_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="10"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard55"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_11_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="11"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard56"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_11_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="11"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard57"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_11_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="11"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard58"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_11_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="11"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard59"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_11_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="11"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard60"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_12_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="12"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard61"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_12_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="12"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard62"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_12_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="12"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard63"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_12_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="12"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard64"
+            android:scaleType="center" />
+
+        <com.example.taylorq.militarychess.Field
+            android:id="@+id/field_12_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_row="12"
+            android:layout_rowWeight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/classicchessboard65"
+            android:scaleType="center" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0"
+        android:background="@drawable/btn_bg_blue"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:id="@+id/Missle_CD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_bg_white"
+            android:gravity="center"
+            android:text="导弹已准备就绪"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/enemy_move"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_bg_white"
+            android:gravity="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_line_white"
+            android:text=""
+            android:textColor="@android:color/background_light"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/plan_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_white"
+            android:text="完成布阵"
+            android:textColor="@android:color/holo_blue_dark"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="232dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
