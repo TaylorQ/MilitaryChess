@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".GameActivity">
 
     <GridLayout
@@ -795,58 +797,67 @@
     </GridLayout>
 
     <LinearLayout
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
         android:background="@drawable/btn_bg_blue"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingBottom="30dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="30dp">
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/missile" />
 
         <TextView
-            android:id="@+id/Missle_CD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/btn_bg_white"
+            android:id="@+id/Missile_CD"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="3dp"
             android:gravity="center"
-            android:text="导弹已准备就绪"
-            android:textColor="@android:color/holo_blue_dark"
+            android:text="：5"
+            android:textColor="@android:color/background_light"
             android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/enemy_move"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/btn_bg_white"
-            android:gravity="center"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/space"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
             android:layout_weight="1"
-            android:background="@drawable/border_line_white"
-            android:text=""
-            android:textColor="@android:color/background_light"
-            android:textSize="13sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/btn_bg_white"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/enemy_move"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_white"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="13sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/plan_finish"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
             android:background="@drawable/btn_bg_white"
-            android:text="完成布阵"
+            android:text="完成"
             android:textColor="@android:color/holo_blue_dark"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="232dp" />

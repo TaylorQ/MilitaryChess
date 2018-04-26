@@ -8,6 +8,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class GameActivity extends AppCompatActivity {
     Button plan_finish;
     TextView missile_cd;
     TextView enemy_move;
+    TextView title;
 
     //状态标识
     private int stage;
@@ -45,8 +48,6 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-
     }
 
     @Override
@@ -64,17 +65,20 @@ public class GameActivity extends AppCompatActivity {
 
         chessBoard = new ChessBoard(this, fieldClickListener);
 
-        if (newrule){
-            chessBoard.place_my_newpiece();
-        }else{
-            chessBoard.place_my_classicpiece();
-        }
-
         plan_finish = findViewById(R.id.plan_finish);
         plan_finish.setOnClickListener(pfClickListener);
 
-        missile_cd = findViewById(R.id.Missle_CD);
+        title = findViewById(R.id.title);
+        missile_cd = findViewById(R.id.Missile_CD);
         enemy_move = findViewById(R.id.enemy_move);
+
+        if (newrule){
+            chessBoard.place_my_newpiece();
+            missile_cd.setText("√");
+        }else{
+            chessBoard.place_my_classicpiece();
+            missile_cd.setText("X");
+        }
 
         stage = STAGE_PLANNING;
         updateTitle();
@@ -85,13 +89,13 @@ public class GameActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button pf = (Button)v;
             if (stage == STAGE_PLANNING){
-                pf.setText("更改布局");
+                pf.setText("更改");
                 stage = STAGE_PLAN_FINISH;
                 updateTitle();
                 String Msg = Constants.ready + "|";
                 sendMessage(Msg);
             }else if (stage == STAGE_PLAN_FINISH){
-                pf.setText("完成布局");
+                pf.setText("完成");
                 stage = STAGE_PLANNING;
                 String Msg = Constants.cancel_ready + "|";
                 updateTitle();
@@ -291,7 +295,7 @@ public class GameActivity extends AppCompatActivity {
                                                 }
                                                 sendMessage(Msg);
                                                 missile_cd_count = 5;//冷却五回合
-                                                missile_cd.setText("导弹CD:5回合");
+                                                missile_cd.setText(":5");
 
                                                 clickedField = null;
                                                 selected.setSelected(false);
@@ -629,7 +633,7 @@ public class GameActivity extends AppCompatActivity {
             case Constants.ready:
                 stage = STAGE_ENEMY_FINISH;
                 updateTitle();
-                plan_finish.setText("开始游戏");
+                plan_finish.setText("开始");
                 break;
             case Constants.cancel_ready:
                 stage = STAGE_PLANNING;
@@ -657,9 +661,9 @@ public class GameActivity extends AppCompatActivity {
                 if (missile_cd_count != 0){
                     missile_cd_count--;
                     if (missile_cd_count == 0){
-                        missile_cd.setText("导弹准备就绪");
+                        missile_cd.setText("√");
                     }else{
-                        missile_cd.setText("导弹CD:"+missile_cd_count+"回合");
+                        missile_cd.setText(":"+missile_cd_count);
                     }
                 }
 
@@ -671,9 +675,9 @@ public class GameActivity extends AppCompatActivity {
                 if (missile_cd_count != 0){
                     missile_cd_count--;
                     if (missile_cd_count == 0){
-                        missile_cd.setText("导弹准备就绪");
+                        missile_cd.setText("√");
                     }else{
-                        missile_cd.setText("导弹CD:"+missile_cd_count+"回合");
+                        missile_cd.setText(":"+missile_cd_count);
                     }
                 }
                 break;
@@ -684,9 +688,9 @@ public class GameActivity extends AppCompatActivity {
                 if (missile_cd_count != 0){
                     missile_cd_count--;
                     if (missile_cd_count == 0){
-                        missile_cd.setText("导弹准备就绪");
+                        missile_cd.setText("√");
                     }else{
-                        missile_cd.setText("导弹CD:"+missile_cd_count+"回合");
+                        missile_cd.setText(":"+missile_cd_count);
                     }
                 }
                 break;
@@ -776,6 +780,6 @@ public class GameActivity extends AppCompatActivity {
                 title = "我的回合";
                 break;
         }
-        setTitle(title);
+        this.title.setText(title);
     }
 }
