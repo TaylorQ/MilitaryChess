@@ -661,7 +661,8 @@ public class GameActivity extends AppCompatActivity {
                 if (missile_cd_count != 0){
                     missile_cd_count--;
                     if (missile_cd_count == 0){
-                        missile_cd.setText("√");
+                        missile_cd.setText("：√");
+                        Toast.makeText(getApplicationContext(), "导弹装填完毕。", Toast.LENGTH_SHORT).show();
                     }else{
                         missile_cd.setText(":"+missile_cd_count);
                     }
@@ -675,7 +676,8 @@ public class GameActivity extends AppCompatActivity {
                 if (missile_cd_count != 0){
                     missile_cd_count--;
                     if (missile_cd_count == 0){
-                        missile_cd.setText("√");
+                        missile_cd.setText("：√");
+                        Toast.makeText(getApplicationContext(), "导弹装填完毕。", Toast.LENGTH_SHORT).show();
                     }else{
                         missile_cd.setText(":"+missile_cd_count);
                     }
@@ -688,7 +690,8 @@ public class GameActivity extends AppCompatActivity {
                 if (missile_cd_count != 0){
                     missile_cd_count--;
                     if (missile_cd_count == 0){
-                        missile_cd.setText("√");
+                        missile_cd.setText("：√");
+                        Toast.makeText(getApplicationContext(), "导弹装填完毕。", Toast.LENGTH_SHORT).show();
                     }else{
                         missile_cd.setText(":"+missile_cd_count);
                     }
