@@ -7,9 +7,8 @@ import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +56,15 @@ public class GameActivity extends AppCompatActivity {
         setup();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            surrender();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     private void setup(){
 
         bluetoothService = (BluetoothService)getApplication();
@@ -74,10 +82,10 @@ public class GameActivity extends AppCompatActivity {
 
         if (newrule){
             chessBoard.place_my_newpiece();
-            missile_cd.setText("√");
+            missile_cd.setText(":√");
         }else{
             chessBoard.place_my_classicpiece();
-            missile_cd.setText("X");
+            missile_cd.setText(":X");
         }
 
         stage = STAGE_PLANNING;
@@ -89,6 +97,8 @@ public class GameActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button pf = (Button)v;
             if (stage == STAGE_PLANNING){
+                selected.setSelected(false);
+                selected = null;
                 pf.setText("更改");
                 stage = STAGE_PLAN_FINISH;
                 updateTitle();
@@ -97,9 +107,12 @@ public class GameActivity extends AppCompatActivity {
             }else if (stage == STAGE_PLAN_FINISH){
                 pf.setText("完成");
                 stage = STAGE_PLANNING;
-                String Msg = Constants.cancel_ready + "|";
                 updateTitle();
+                String Msg = Constants.cancel_ready + "|";
+                sendMessage(Msg);
             }else if (stage == STAGE_ENEMY_FINISH){
+                selected.setSelected(false);
+                selected = null;
                 pf.setText("投降");
                 String Msg = Constants.my_plan + "|";
                 Msg += chessBoard.generate_my_plan();
@@ -176,7 +189,7 @@ public class GameActivity extends AppCompatActivity {
                         return;
                 }
 
-                else if (selected.getOwner().getLevel() == Constants.zhadan){//炸弹不能放第一排
+                if (selected.getOwner().getLevel() == Constants.zhadan){//炸弹不能放第一排
                     if (clickedField.getRow() == 6)
                         return;
                 }else if (clickedField.getOwner().getLevel() == Constants.zhadan){
@@ -184,7 +197,7 @@ public class GameActivity extends AppCompatActivity {
                         return;
                 }
 
-                else if (selected.getOwner().getLevel() == Constants.dilei){//地雷只能放后两排
+                if (selected.getOwner().getLevel() == Constants.dilei){//地雷只能放后两排
                     if (clickedField.getRow() < 10)
                         return;
                 }else if (clickedField.getOwner().getLevel() == Constants.dilei){
@@ -417,30 +430,32 @@ public class GameActivity extends AppCompatActivity {
         int ymove = to.getColumn() - from .getColumn();
         if (xmove < 2&&xmove > -2&&ymove < 2&&ymove > -2){//单步移动
             if (xmove == -1&&ymove == 0){
-                return ChessBoard.map[from.getRow()][from.getColumn()][0] != 0;
+                if (ChessBoard.map[from.getRow()][from.getColumn()][0] != 0)
+                    return true;
+            }else if (xmove == -1&&ymove == 1){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][1] != 0)
+                    return true;
+            }else if (xmove == 0&&ymove == 1){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][2] != 0)
+                    return true;
+            }else if (xmove == 1&&ymove == 1){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][3] != 0)
+                    return true;
+            }else if (xmove == 1&&ymove == 0){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][4] != 0)
+                    return true;
+            }else if (xmove == 1&&ymove == -1){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][5] != 0)
+                    return true;
+            }else if (xmove == 0&&ymove == -1){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][6] != 0)
+                    return true;
+            }else if (xmove == -1&&ymove == -1){
+                if (ChessBoard.map[from.getRow()][from.getColumn()][7] != 0)
+                    return true;
             }
-            if (xmove == -1&&ymove == 1){
-                return ChessBoard.map[from.getRow()][from.getColumn()][1] != 0;
-            }
-            if (xmove == 0&&ymove == 1){
-                return ChessBoard.map[from.getRow()][from.getColumn()][2] != 0;
-            }
-            if (xmove == 1&&ymove == 1){
-                return ChessBoard.map[from.getRow()][from.getColumn()][3] != 0;
-            }
-            if (xmove == 1&&ymove == 0){
-                return ChessBoard.map[from.getRow()][from.getColumn()][4] != 0;
-            }
-            if (xmove == 1&&ymove == -1){
-                return ChessBoard.map[from.getRow()][from.getColumn()][5] != 0;
-            }
-            if (xmove == 0&&ymove == -1){
-                return ChessBoard.map[from.getRow()][from.getColumn()][6] != 0;
-            }
-            if (xmove == -1&&ymove == -1){
-                return ChessBoard.map[from.getRow()][from.getColumn()][7] != 0;
-            }
-        }else if (from.getType() == Field.TYPE_RAIL&&to.getType() == Field.TYPE_RAIL){//铁轨移动
+        }
+        if (from.getType() == Field.TYPE_RAIL&&to.getType() == Field.TYPE_RAIL){//铁轨移动
             switch (from.getOwner().getLevel()){
                 case Constants.gongbing:
                 case Constants.engineer:
@@ -451,13 +466,13 @@ public class GameActivity extends AppCompatActivity {
         }else{
             return false;
         }
-        return false;
     }
 
     private boolean fast_rail_move(Field from, Field to, ArrayList<Field> route){
         route.add(from);
         int fx = from.getRow();
         int fy = from.getColumn();
+        System.out.println(fx+","+fy);
         int xmove = -1;int ymove = 0;//向上
         if (fx != 0//防止越界
                 &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){//还没走过
@@ -471,36 +486,10 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }
-        xmove = -1;ymove = 1;//向右上
-        if (fx != 0&&fy != 4
-                &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){
-            if (ChessBoard.map[fx][fy][1] == 2){
-                if (chessBoard.chessboard[fx+xmove][fy+ymove].equals(to)){
-                    return true;
-                }else if (chessBoard.chessboard[fx+xmove][fy+ymove].getOwner() == null){
-                    if (fast_rail_move(chessBoard.chessboard[fx+xmove][fy+ymove], to, route)){
-                        return true;
-                    }
-                }
-            }
-        }
         xmove = 0;ymove = 1;//向右
         if (fy != 4
                 &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){
             if (ChessBoard.map[fx][fy][2] == 2){
-                if (chessBoard.chessboard[fx+xmove][fy+ymove].equals(to)){
-                    return true;
-                }else if (chessBoard.chessboard[fx+xmove][fy+ymove].getOwner() == null){
-                    if (fast_rail_move(chessBoard.chessboard[fx+xmove][fy+ymove], to, route)){
-                        return true;
-                    }
-                }
-            }
-        }
-        xmove = 1;ymove = 1;//向右下
-        if (fx != 11&&fy != 4
-                &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){
-            if (ChessBoard.map[fx][fy][3] == 2){
                 if (chessBoard.chessboard[fx+xmove][fy+ymove].equals(to)){
                     return true;
                 }else if (chessBoard.chessboard[fx+xmove][fy+ymove].getOwner() == null){
@@ -523,36 +512,10 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }
-        xmove = 1;ymove = -1;//向左下
-        if (fx != 11&&fy != 0
-                &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){
-            if (ChessBoard.map[fx][fy][5] == 2){
-                if (chessBoard.chessboard[fx+xmove][fy+ymove].equals(to)){
-                    return true;
-                }else if (chessBoard.chessboard[fx+xmove][fy+ymove].getOwner() == null){
-                    if (fast_rail_move(chessBoard.chessboard[fx+xmove][fy+ymove], to, route)){
-                        return true;
-                    }
-                }
-            }
-        }
         xmove = 0;ymove = -1;//向左
         if (fy != 0
                 &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){
             if (ChessBoard.map[fx][fy][6] == 2){
-                if (chessBoard.chessboard[fx+xmove][fy+ymove].equals(to)){
-                    return true;
-                }else if (chessBoard.chessboard[fx+xmove][fy+ymove].getOwner() == null){
-                    if (fast_rail_move(chessBoard.chessboard[fx+xmove][fy+ymove], to, route)){
-                        return true;
-                    }
-                }
-            }
-        }
-        xmove = -1;ymove = -1;//向左上
-        if (fx != 0&&fy != 0
-                &&!route.contains(chessBoard.chessboard[fx+xmove][fy+ymove])){
-            if (ChessBoard.map[fx][fy][7] == 2){
                 if (chessBoard.chessboard[fx+xmove][fy+ymove].equals(to)){
                     return true;
                 }else if (chessBoard.chessboard[fx+xmove][fy+ymove].getOwner() == null){
@@ -638,6 +601,7 @@ public class GameActivity extends AppCompatActivity {
             case Constants.cancel_ready:
                 stage = STAGE_PLANNING;
                 updateTitle();
+                plan_finish.setText("完成");
                 break;
             case Constants.my_plan:
                 chessBoard.place_enemy(msg[1]);

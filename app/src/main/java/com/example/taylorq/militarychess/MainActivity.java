@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
 
+    private boolean bluetooth_permission = false;
+
     private Button bluetooth;
     private Button new_game;
     private Button illustrate;
@@ -57,18 +59,17 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Bluetooth is not available", Toast.LENGTH_LONG).show();
         }
 
-        ItemSetup();
+        //打开蓝牙
+        if (!mBluetoothAdapter.isEnabled()) {
+            mBluetoothAdapter.enable();
+        }
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // 如果蓝牙还未开启，发起开启蓝牙请求
-        // ItemSetup()会在onActivityResult()中调用
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-        } else if (bluetoothService == null) {
+
+         if (bluetoothService == null) {
             ItemSetup();
         } else if (bluetoothService != null){//将蓝牙服务类的handler重置为本activity的handler
             bluetoothService.setmHandler(mHandler);

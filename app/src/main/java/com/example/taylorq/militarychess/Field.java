@@ -3,6 +3,7 @@ package com.example.taylorq.militarychess;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
@@ -38,6 +39,7 @@ public class Field extends AppCompatImageView {
         super.onDraw(canvas);
 
         Paint paint = new Paint();
+        paint.setTypeface(Typeface.DEFAULT_BOLD);
         paint.setColor(getResources().getColor(R.color.ally));
         if (owner != null&&!owner.isMine()){
             paint.setColor(getResources().getColor(R.color.enemy));
@@ -53,18 +55,18 @@ public class Field extends AppCompatImageView {
             if (owner.isMine()){
                 text = owner_name;
                 if (owner.isVisible()){
-                    text += "o";
+                    text = "["+text+"]";
                 }
             }else{
                 if (owner.isVisible()) {
                     text = owner_name;
                 }else{
-                    text = "???";
+                    text = "敌军";
                 }
             }
         }
 
-        canvas.drawText(text, (canvas.getWidth()-textSize*text.length())/2, (canvas.getHeight()-textSize)*2/3, paint);
+        canvas.drawText(text, (canvas.getWidth()-paint.measureText(text))/2, (canvas.getHeight()-textSize)*2/3, paint);
     }
 
     public void refresh(){
