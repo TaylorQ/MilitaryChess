@@ -97,8 +97,10 @@ public class GameActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button pf = (Button)v;
             if (stage == STAGE_PLANNING){
-                selected.setSelected(false);
-                selected = null;
+                if (selected != null){
+                    selected.setSelected(false);
+                    selected = null;
+                }
                 pf.setText("更改");
                 stage = STAGE_PLAN_FINISH;
                 updateTitle();
@@ -111,8 +113,10 @@ public class GameActivity extends AppCompatActivity {
                 String Msg = Constants.cancel_ready + "|";
                 sendMessage(Msg);
             }else if (stage == STAGE_ENEMY_FINISH){
-                selected.setSelected(false);
-                selected = null;
+                if (selected != null) {
+                    selected.setSelected(false);
+                    selected = null;
+                }
                 pf.setText("投降");
                 String Msg = Constants.my_plan + "|";
                 Msg += chessBoard.generate_my_plan();
